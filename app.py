@@ -17,15 +17,28 @@ def construct_listing_url(model, trim):
     return f"{base_url}/{model}/?trim={trim}"
 
 def extract_vins_from_listings(url, max_vins=30, max_pages=5):
-    """Scrape up to `max_vins` VINs from listing pages with retry and pagination limits."""
+    """Scrape up to `max_vins` VINs from listing pages with retry, delay, and optional proxy."""
     vins = set()
-    headers = {"User-Agent": "Mozilla/5.0"}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Connection": "keep-alive"
+    }
+
+    # Optional proxy support
+    proxies = None
+    if "OXY_USER" in st.secrets and "OXY_PASS" in st.secrets:
+        proxy_auth = f"{st.secrets['OXY_USER']}:{st.secrets['OXY_PASS']}"
+        proxy_url = f"http://{proxy_auth}@proxy.oxylabs.io:8000"
+        proxies = {"http": proxy_url, "https": proxy_url}
 
     for page in range(1, max_pages + 1):
         paged_url = f"{url}&page={page}"
         for attempt in range(3):
             try:
-                response = requests.get(paged_url, headers=headers, timeout=10)
+                response = requests.get(paged_url, headers=headers, proxies=proxies, timeout=10)
                 if response.status_code == 200:
                     break
                 else:
@@ -48,6 +61,8 @@ def extract_vins_from_listings(url, max_vins=30, max_pages=5):
 
         if not vin_tags:
             break
+
+        time.sleep(1.5)  # polite delay
 
     return list(vins)[:max_vins]
 
