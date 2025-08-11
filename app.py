@@ -10,8 +10,8 @@ import time
 # -------------------------------
 
 def construct_listing_url(model, trim):
-    """Build search URL for a given model and trim (new cars only)."""
-    base_url = "https://www.example.com/new-cars-for-sale/listings/ford"
+    """Build TrueCar search URL for a given model and trim (new cars only)."""
+    base_url = "https://www.truecar.com/new-cars-for-sale/listings/ford"
     model = model.lower().replace(" ", "-")
     trim = trim.lower().replace(" ", "-")
     return f"{base_url}/{model}/?trim={trim}"
