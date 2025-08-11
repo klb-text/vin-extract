@@ -25,13 +25,16 @@ def extract_vins_from_listings(url, max_vins=30, max_pages=5):
         "Connection": "keep-alive"
     }
 
-    proxies = None"{st.secrets['OXY_USER']}:{st.secrets['OXY_PASS']}"
+    # Optional proxy support
+    proxies = None
+    if "OXY_USER" in st.secrets and "OXY_PASS" in st.secrets:
+        proxy_auth = f"{st.secrets['OXY_USER']}:{st.secrets['OXY_PASS']}"
         proxy_url = f"http://{proxy_auth}@proxy.oxylabs.io:8000"
         proxies = {"http": proxy_url, "https": proxy_url}
 
     for page in range(1, max_pages + 1):
         paged_url = f"{url}&page={page}"
-        st.write(f"🔗 Requesting: {paged_url}")  # Log the actual URL
+        st.write(f"🔗 Requesting: {paged_url}")
 
         for attempt in range(3):
             try:
