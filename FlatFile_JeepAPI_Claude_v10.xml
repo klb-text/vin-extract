@@ -1,1 +1,825 @@
+<!-- Copyright (C) 2026 Mozenda, Inc. All rights reserved. -->
 
+<Agent>
+  <Version>1.0o</Version>
+  <IeVersion>11.1882</IeVersion>
+  <BrowserType>Chromium</BrowserType>
+  <BrowserVersion>146.0.7680.154</BrowserVersion>
+  <TemplateID>0</TemplateID>
+  <RequestBlockLevel>0</RequestBlockLevel>
+  <AgentDefinition>
+
+    <!--- - - - - - - - FieldInfo (Provisional) - - - - - - - - -->
+
+    <FieldInfoList>
+      <FieldInfo>
+        <n>description</n>
+        <IsUnique>True</IsUnique>
+      </FieldInfo>
+      <FieldInfo>
+        <n>HTMLURL</n>
+        <Format>Url</Format>
+      </FieldInfo>
+      <FieldInfo>
+        <n>offerDescription</n>
+        <IsUnique>True</IsUnique>
+      </FieldInfo>
+      <FieldInfo>
+        <n>offerDisclaimer</n>
+        <IsUnique>True</IsUnique>
+      </FieldInfo>
+      <FieldInfo>
+        <n>PostalCode</n>
+        <IsUnique>True</IsUnique>
+      </FieldInfo>
+    </FieldInfoList>
+    <!--- - - - - - - - Browser Proxy Bypass Expressions - - - - - - - - -->
+
+    <BrowserProxyBypassExpressionList>
+      <BrowserProxyBypassExpression>regex:(?i)(\.js)(\?|\;|$)</BrowserProxyBypassExpression>
+      <BrowserProxyBypassExpression>regex:(?i)(\.css)(\?|\;|$)</BrowserProxyBypassExpression>
+      <BrowserProxyBypassExpression>regex:(?i)(\.)(bitmap|bmp|gif|ico|icon|jpe|jpeg|jpg|mng|ora|pix|png|psd|svg|tga|tiff?)(\?|\;|$)</BrowserProxyBypassExpression>
+      <BrowserProxyBypassExpression>regex:(?i)(\/|\.)(avif|bitmap|bmp|gif|ico|icon|jpe|jpeg|jpg|mng|ora|pix|png|psd|svg|tga|tiff?|webp)(\?|\;|$)</BrowserProxyBypassExpression>
+      <BrowserProxyBypassExpression>regex:(?i)(\/|\.)(acc|asf|avchd|avi|flv|mov|mp3|mp4|mpeg|mpg|ogg|qt|swf|wav|webm)(\?|\;|$)</BrowserProxyBypassExpression>
+      <BrowserProxyBypassExpression>regex:(?i)(\.eot|\.font|\.otf|\.svg|\.ttc|\.ttf|\.woff2?)(\?|\;|$)</BrowserProxyBypassExpression>
+    </BrowserProxyBypassExpressionList>
+    <!--- - - - - - - - Actions - - - - - - - - -->
+
+    <ActionList>
+
+      <Action>
+        <ActionID>Action-0</ActionID>
+        <ActionType>LoadPage</ActionType>
+        <Page>0</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <DestinationPage>1</DestinationPage>
+        <TopLevelNav>True</TopLevelNav>
+        <TopLevelNavCount>1</TopLevelNavCount>
+        <PageUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/85920/vehicle/CUJ202420</PageUrl>
+      </Action>
+
+      <Action>
+        <ActionID>Action-1</ActionID>
+        <ActionType>PagePlaceHolder</ActionType>
+        <Page>1</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <LoadUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/85920/vehicle/CUJ202420</LoadUrl>
+        <BaseUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/85920/vehicle/CUJ202420</BaseUrl>
+        <CaptureScreenShot>False</CaptureScreenShot>
+      </Action>
+
+      <Action>
+        <ActionID>Action-46</ActionID>
+        <ActionType>BeginDataList</ActionType>
+        <Description>Begins a list of data items contained in the FlatFile FCA API Get MCY, Jeep (27610) collection</Description>
+        <Page>1</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%display%</FieldExpression>
+        <FieldExpression>%Brand%</FieldExpression>
+        <FieldExpression>%modelYearCode%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>.</ItemXPath>
+        <ElementName>FlatFile FCA API Get MCY, Jeep (27610)</ElementName>
+        <ListName>FlatFile FCA API Get MCY, Jeep (27610)</ListName>
+        <ViewID>27610</ViewID>
+        <BookmarkID>Most recent completed run</BookmarkID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-43</ActionID>
+        <ActionType>BeginDataList</ActionType>
+        <Description>Begins a list of data items contained in the FCA GeogIDs May25, JEEP (27692) collection</Description>
+        <Page>1</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%GeogID%</FieldExpression>
+        <FieldExpression>%PostalCode%</FieldExpression>
+        <FieldExpression>%DMA%</FieldExpression>
+        <FieldExpression>%STATE%</FieldExpression>
+        <FieldExpression>%New BUS_CTR NAME%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>.</ItemXPath>
+        <ElementName>FCA GeogIDs May25, JEEP (27692)</ElementName>
+        <ListName>FCA GeogIDs May25, JEEP (27692)</ListName>
+        <ViewID>27692</ViewID>
+        <BookmarkID>Default for Collection</BookmarkID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-44</ActionID>
+        <ActionType>LoadPage</ActionType>
+        <Page>1</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <DestinationPage>2</DestinationPage>
+        <OriginalFormat>Text</OriginalFormat>
+        <ConversionTimeout>360</ConversionTimeout>
+        <TopLevelNav>True</TopLevelNav>
+        <TopLevelNavCount>1</TopLevelNavCount>
+        <PageUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/%PostalCode%/vehicle/%modelYearCode%</PageUrl>
+      </Action>
+
+      <Action>
+        <ActionID>Action-45</ActionID>
+        <ActionType>EndList</ActionType>
+        <Page>1</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <ListName>FCA GeogIDs May25, JEEP (27692)</ListName>
+      </Action>
+
+      <Action>
+        <ActionID>Action-47</ActionID>
+        <ActionType>EndList</ActionType>
+        <Page>1</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <ListName>FlatFile FCA API Get MCY, Jeep (27610)</ListName>
+      </Action>
+
+      <Action>
+        <ActionID>Action-3</ActionID>
+        <ActionType>PagePlaceHolder</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>PageUrl:%HTMLURL%</FieldExpression>
+        <LoadUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/00501/vehicle/CUJ202421</LoadUrl>
+        <BaseUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/00501/vehicle/CUJ202421</BaseUrl>
+        <CaptureScreenShot>False</CaptureScreenShot>
+      </Action>
+
+      <Action>
+        <ActionID>Action-85</ActionID>
+        <ActionType>WaitSeconds</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <Value>1</Value>
+      </Action>
+
+      <Action>
+        <ActionID>Action-37</ActionID>
+        <ActionType>InjectJavascript</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <Value>// ============================================================\n// FCA Incentives API - Mozenda InjectJavascript (v6.3 FINAL)\n// FIXES:\n//  - JSON-without-data no longer fails\n//  - &amp;lt;thead&amp;gt; ALWAYS exists\n//  - CSS restored safely (spacing/grid fixed)\n//  - document.head is NEVER cleared\n// TABLE OUTPUT: IDENTICAL TO ORIGINAL WORKING AGENT\n// ============================================================\n\ntry {\n\n  var MAX_CASH_SLOTS = 6;\n\n  var rawJson = null;\n\n  var preEl = document.querySelector(&amp;#39;pre&amp;#39;);\n  if (preEl &amp;amp;&amp;amp; preEl.textContent) {\n    rawJson = preEl.textContent;\n  }\n\n  if (!rawJson || rawJson.trim().charAt(0) !== &amp;#39;{&amp;#39;) {\n    rawJson = document.body\n      ? (document.body.textContent || document.body.innerText)\n      : &amp;#39;&amp;#39;;\n  }\n\n  rawJson = (rawJson || &amp;#39;&amp;#39;).trim();\n\n  var HAS_DATA = true;\n  if (!rawJson || rawJson.charAt(0) !== &amp;#39;{&amp;#39;) {\n    HAS_DATA = false;\n  }\n\n  var root = null;\n  var data = null;\n\n  if (HAS_DATA) {\n    try {\n      root = JSON.parse(rawJson);\n      data = root.data;\n    } catch (e) {\n      HAS_DATA = false;\n    }\n  }\n\n  if (HAS_DATA &amp;amp;&amp;amp; (!data || typeof data !== &amp;#39;object&amp;#39;)) {\n    HAS_DATA = false;\n  }\n\n  var COLUMNS = [\n    &amp;#39;zip&amp;#39;, &amp;#39;vehicleKey&amp;#39;, &amp;#39;mappingKey&amp;#39;,\n    &amp;#39;ccode&amp;#39;, &amp;#39;llp&amp;#39;, &amp;#39;year&amp;#39;, &amp;#39;brand&amp;#39;, &amp;#39;bodyModel&amp;#39;, &amp;#39;description&amp;#39;, &amp;#39;modelDesc&amp;#39;,\n    &amp;#39;baseMsrp&amp;#39;, &amp;#39;configuredMsrp&amp;#39;, &amp;#39;destination&amp;#39;,\n    &amp;#39;offerId&amp;#39;, &amp;#39;offerLabel&amp;#39;, &amp;#39;offerType&amp;#39;, &amp;#39;offerSource&amp;#39;,\n    &amp;#39;offerStart&amp;#39;, &amp;#39;offerEnd&amp;#39;, &amp;#39;offerDescription&amp;#39;, &amp;#39;offerDisclaimer&amp;#39;,\n    &amp;#39;preferred&amp;#39;, &amp;#39;allProgramCodes&amp;#39;,\n    &amp;#39;aprProgramCode&amp;#39;, &amp;#39;aprRate&amp;#39;, &amp;#39;aprTerm&amp;#39;, &amp;#39;aprCreditTier&amp;#39;, &amp;#39;aprDisclaimer&amp;#39;, &amp;#39;downPmntPct&amp;#39;,\n    &amp;#39;cashSlotCount&amp;#39;, &amp;#39;cashTotal&amp;#39;\n  ];\n\n  for (var s = 1; s &amp;lt;= MAX_CASH_SLOTS; s++) {\n    COLUMNS.push(&amp;#39;Rebate&amp;#39; + s + &amp;#39;Program&amp;#39;);\n    COLUMNS.push(&amp;#39;Rebate&amp;#39; + s + &amp;#39;Value&amp;#39;);\n    COLUMNS.push(&amp;#39;Rebate&amp;#39; + s + &amp;#39;Conditional&amp;#39;);\n  }\n\n  COLUMNS = COLUMNS.concat([\n    &amp;#39;leaseMonthlyPmt&amp;#39;, &amp;#39;leaseTerm&amp;#39;, &amp;#39;leaseDueAtSign&amp;#39;,\n    &amp;#39;leaseMileage&amp;#39;, &amp;#39;leaseMileageDesc&amp;#39;, &amp;#39;leaseMsrp&amp;#39;,\n    &amp;#39;leaseDownPmt&amp;#39;, &amp;#39;leaseSecDep&amp;#39;, &amp;#39;leaseTotalPmt&amp;#39;,\n    &amp;#39;leaseExcessMil&amp;#39;, &amp;#39;leaseCreditReq&amp;#39;,\n    &amp;#39;groupValueSummary&amp;#39;, &amp;#39;groupDisclaimerJoined&amp;#39;, &amp;#39;qualifyingBrands&amp;#39;\n  ]);\n\n  var rows = [];\n\n  if (HAS_DATA) {\n\n    var offerMap = {};\n    (data.offers || []).forEach(function (o) {\n      offerMap[o.id] = o;\n    });\n\n    var programMap = {};\n    (data.programs || []).forEach(function (p) {\n      if (p.programNumber) {\n        programMap[p.programNumber] = p.name || &amp;#39;&amp;#39;;\n      }\n    });\n\n    var seenIds = {};\n\n    (data.targetMediumMapping || []).forEach(function (mapping) {\n\n      var mappingKey = mapping.key || &amp;#39;&amp;#39;;\n\n      (mapping.offerOrder || []).forEach(function (orderItem) {\n\n        var offerId = orderItem.id;\n        if (!offerId || seenIds[offerId]) return;\n        seenIds[offerId] = true;\n\n        var offer = offerMap[offerId];\n        if (!offer) return;\n\n        var rep = orderItem.representativeCcode || {};\n        var offerLabel = orderItem.label || &amp;#39;&amp;#39;;\n\n        var cashSlots = [];\n        var cashTotal = 0;\n        var allProgramCodes = [];\n\n        (offer.programValues || []).forEach(function (pv) {\n          allProgramCodes.push(pv.programCode || &amp;#39;&amp;#39;);\n\n          if (pv.displayType === &amp;#39;cash&amp;#39;) {\n            var name = programMap[pv.programCode] || &amp;#39;&amp;#39;;\n            var lbl = name ? (pv.programCode + &amp;#39; - &amp;#39; + name) : pv.programCode;\n            var combined = pv.programDisclaimer\n              ? lbl + &amp;#39; | &amp;#39; + pv.programDisclaimer\n              : lbl;\n\n            cashSlots.push({\n              combined: combined,\n              value: pv.value != null ? pv.value : &amp;#39;&amp;#39;,\n              conditional: pv.conditional != null ? String(pv.conditional) : &amp;#39;&amp;#39;\n            });\n          }\n        });\n\n        cashSlots.forEach(function (s) {\n          var v = parseFloat(s.value);\n          if (!isNaN(v)) cashTotal += v;\n        });\n\n        var row = {\n          zip: (root.request || {}).zip || &amp;#39;&amp;#39;,\n          vehicleKey: (root.request || {}).vehicleKey || &amp;#39;&amp;#39;,\n          mappingKey: mappingKey,\n          ccode: rep.ccode || &amp;#39;&amp;#39;,\n          llp: rep.llp || &amp;#39;&amp;#39;,\n          year: rep.year || &amp;#39;&amp;#39;,\n          brand: rep.brand || &amp;#39;&amp;#39;,\n          bodyModel: rep.bodyModel || &amp;#39;&amp;#39;,\n          description: rep.description || &amp;#39;&amp;#39;,\n          modelDesc: rep.modelDesc || &amp;#39;&amp;#39;,\n          baseMsrp: rep.baseMsrp != null ? rep.baseMsrp : &amp;#39;&amp;#39;,\n          configuredMsrp: rep.configuredMsrp != null ? rep.configuredMsrp : &amp;#39;&amp;#39;,\n          destination: rep.destination != null ? rep.destination : &amp;#39;&amp;#39;,\n          offerId: offer.id || &amp;#39;&amp;#39;,\n          offerLabel: offerLabel,\n          offerType: offer.type || &amp;#39;&amp;#39;,\n          offerSource: offer.source || &amp;#39;&amp;#39;,\n          offerStart: offer.start || &amp;#39;&amp;#39;,\n          offerEnd: offer.end || &amp;#39;&amp;#39;,\n          offerDescription: offer.offerDescription || &amp;#39;&amp;#39;,\n          offerDisclaimer: offer.offerDisclaimer || &amp;#39;&amp;#39;,\n          preferred: orderItem.preferred != null ? String(orderItem.preferred) : &amp;#39;&amp;#39;,\n          allProgramCodes: allProgramCodes.join(&amp;#39; | &amp;#39;),\n          cashSlotCount: cashSlots.length,\n          cashTotal: cashSlots.length ? cashTotal : &amp;#39;&amp;#39;\n        };\n\n        for (var r = 1; r &amp;lt;= MAX_CASH_SLOTS; r++) {\n          var slot = cashSlots[r - 1] || {};\n          row[&amp;#39;Rebate&amp;#39; + r + &amp;#39;Program&amp;#39;] = slot.combined || &amp;#39;&amp;#39;;\n          row[&amp;#39;Rebate&amp;#39; + r + &amp;#39;Value&amp;#39;] = slot.value || &amp;#39;&amp;#39;;\n          row[&amp;#39;Rebate&amp;#39; + r + &amp;#39;Conditional&amp;#39;] = slot.conditional || &amp;#39;&amp;#39;;\n        }\n\n        rows.push(row);\n      });\n    });\n  }\n\n  document.body.innerHTML = &amp;#39;&amp;#39;;\n\n  var table = document.createElement(&amp;#39;TABLE&amp;#39;);\n  table.id = &amp;#39;moz_fca_offers&amp;#39;;\n\n  var thead = document.createElement(&amp;#39;THEAD&amp;#39;);\n  var hrow = document.createElement(&amp;#39;TR&amp;#39;);\n  COLUMNS.forEach(function (col) {\n    var th = document.createElement(&amp;#39;TH&amp;#39;);\n    th.className = col;\n    th.textContent = col;\n    hrow.appendChild(th);\n  });\n  thead.appendChild(hrow);\n  table.appendChild(thead);\n\n  var tbody = document.createElement(&amp;#39;TBODY&amp;#39;);\n  rows.forEach(function (row) {\n    var tr = document.createElement(&amp;#39;TR&amp;#39;);\n    tr.setAttribute(&amp;#39;data-offer-type&amp;#39;, row.offerType || &amp;#39;&amp;#39;);\n    tr.setAttribute(&amp;#39;data-offer-label&amp;#39;, row.offerLabel || &amp;#39;&amp;#39;);\n    COLUMNS.forEach(function (col) {\n      var td = document.createElement(&amp;#39;TD&amp;#39;);\n      td.className = col;\n      td.textContent = row[col] != null ? String(row[col]) : &amp;#39;&amp;#39;;\n      tr.appendChild(td);\n    });\n    tbody.appendChild(tr);\n  });\n\n  table.appendChild(tbody);\n  document.body.appendChild(table);\n\n  if (document.head &amp;amp;&amp;amp; !document.getElementById(&amp;#39;moz_fca_css&amp;#39;)) {\n    var css = document.createElement(&amp;#39;STYLE&amp;#39;);\n    css.id = &amp;#39;moz_fca_css&amp;#39;;\n    css.textContent =\n      &amp;#39;body{font-family:monospace;font-size:12px}&amp;#39; +\n      &amp;#39;table{border-collapse:collapse;width:100%}&amp;#39; +\n      &amp;#39;th,td{border:1px solid #ccc;padding:3px 6px;white-space:nowrap}&amp;#39; +\n      &amp;#39;thead tr{background:#e8e8e8}&amp;#39;;\n    document.head.appendChild(css);\n  }\n\n}\ncatch (e) {\n  M_StopWithError(e.name, e.message);\n}\nfinally {\n  M_StopWaiting();\n}</Value>
+      </Action>
+
+      <Action>
+        <ActionID>Action-86</ActionID>
+        <ActionType>WaitSeconds</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <Value>1</Value>
+      </Action>
+
+      <Action>
+        <ActionID>Action-9</ActionID>
+        <ActionType>BeginAnchorList</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>//*[@id=&amp;#39;moz_fca_offers&amp;#39;]/tbody[1]/tr/td[1]</ItemXPath>
+        <ItemXPath>/html[1]/body[1]/table[1]/tbody[1]/tr/td[1]</ItemXPath>
+        <WaitForNodesTimeout>5</WaitForNodesTimeout>
+        <ListName>DataList</ListName>
+        <PreloadActionNodes>True</PreloadActionNodes>
+        <ErrorHandler>
+          <ErrorResponse>GotoPage</ErrorResponse>
+          <ErrorResponseInfo>3</ErrorResponseInfo>
+        </ErrorHandler>
+      </Action>
+
+      <Action>
+        <ActionID>Action-11</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Description>Captures the text of the list item</Description>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Zip%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>.</ItemXPath>
+        <ElementID>m_uid-71</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-12</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%vehicleKey%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;vehicleKey&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-72</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-13</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%mappingKey%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;mappingKey&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-74</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-14</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%ccode%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;ccode&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-108</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-15</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%llp%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;llp&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-112</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-16</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Year%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;year&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-114</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-17</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%ManufactName%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;brand&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-121</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-18</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Model Code%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;bodyModel&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-43</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-19</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%description%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;description&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-42</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-20</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Model%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;modelDesc&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-131</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-21</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%baseMsrp%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;baseMsrp&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-136</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-22</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%destination%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;destination&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-185</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-23</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%offerId%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerId&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-186</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-24</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Title%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerLabel&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-191</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-25</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%offerType%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerType&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-200</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-26</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%offerSource%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerSource&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-203</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-27</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Start Date%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerStart&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-212</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-28</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%End Date%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerEnd&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-220</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-29</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%offerDescription%</FieldExpression>
+        <FieldExpression>lease for $%Payment% per month for %Term% Mon</FieldExpression>
+        <FieldExpression>months with $%Due at Signing% due at signing</FieldExpression>
+        <FieldExpression>in a $%Lease Cash% </FieldExpression>
+        <FieldExpression>Get up to $%Total Cash% Cash Allowance</FieldExpression>
+        <FieldExpression>Get %APR% for %Term% months on a new</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerDescription&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-226</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-30</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%offerDisclaimer%</FieldExpression>
+        <FieldExpression>%Disclaimer%</FieldExpression>
+        <FieldExpression>MSRP example of $%MSRP% with %Package Code% pac</FieldExpression>
+        <FieldExpression>and a $%Acquisition Fee% acquisition fee</FieldExpression>
+        <FieldExpression>of $%Cost Per Mile%/mile for each mile over %Yearly Excess Mileage% miles per year</FieldExpression>
+        <FieldExpression>term. $%Disposition Fee% dis</FieldExpression>
+        <FieldExpression>equals $%Per 1000% per month per $1</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;offerDisclaimer&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-235</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-31</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%perferred%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;preferred&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-244</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-32</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%allProgramCodes%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;allProgramCodes&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-254</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-33</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%APR%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;aprRate&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-258</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-34</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%aprTerm%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;aprTerm&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-264</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-35</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Down%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;downPmntPct&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-279</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-36</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%cashSlotCount%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;cashSlotCount&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-280</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-36b</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%CashPrograms%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;cashTotal&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-281</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-61</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate1Value%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate1Value&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-602</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-63</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate1Program%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate1Program&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-604</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-65</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate2Value%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate2Value&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-606</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-89</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate2Program%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate2Program&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-604</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-69</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate3Value%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate3Value&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-610</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-90</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate3Program%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate3Program&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-604</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-73</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate4Value%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate4Value&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-614</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-91</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate4Program%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate4Program&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-604</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-77</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate5Value%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate5Value&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-618</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-92</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate5Program%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate5Program&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-604</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-81</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate6Value%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate6Value&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-622</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-93</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Rebate6Program%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;Rebate6Program&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-604</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-84</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%qualifyingBrands%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;qualifyingBrands&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-625</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-38</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Payment%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseMonthlyPmt&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-288</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-39</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%leaseTerm%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseTerm&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-295</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-40</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%leaseDueAtSign%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseDueAtSign&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-305</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-41</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%leaseMileage%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseMileage&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-313</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-42</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%leaseMsrp%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseMsrp&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-319</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-48</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%leaseDownPmt%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseDownPmt&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-327</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-49</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%leaseSecDep%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;leaseSecDep&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-336</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-50</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%groupValueSummary%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;groupValueSummary&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-347</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-51</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%groupDisclaimerJoined%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;groupDisclaimerJoined&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-365</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-87</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%aprDisclaimer%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;aprDisclaimer&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-200</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-88</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%aprProgramCode%</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;aprProgramCode&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-170</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-N01</ActionID>
+        <ActionType>GetElementValue</ActionType>
+        <Page>2</Page>
+        <IsOptional>True</IsOptional>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>GRAND WAGONEER %VehicleAttributes%</FieldExpression>
+        <FieldExpression>WAGONEER S %VehicleAttributes%</FieldExpression>
+        <FieldExpression>GRAND CHEROKEE L %VehicleAttributes%</FieldExpression>
+        <FieldExpression>GRAND CHEROKEE %VehicleAttributes%</FieldExpression>
+        <FieldExpression>COMPASS %VehicleAttributes%</FieldExpression>
+        <FieldExpression>CHEROKEE %VehicleAttributes%</FieldExpression>
+        <FieldExpression>WRANGLER 4xe %VehicleAttributes%</FieldExpression>
+        <FieldExpression>WRANGLER %VehicleAttributes%</FieldExpression>
+        <FieldExpression>GLADIATOR %VehicleAttributes%</FieldExpression>
+        <FieldExpression>regex:(?&amp;lt;Drive&amp;gt;(FWD|RWD|AWD|4X2|4X4|4WD))</FieldExpression>
+        <ItemType>PlaceHolder</ItemType>
+        <ItemXPath>following-sibling::td[@class=&amp;#39;description&amp;#39;]</ItemXPath>
+        <ElementID>m_uid-N01</ElementID>
+      </Action>
+
+      <Action>
+        <ActionID>Action-10</ActionID>
+        <ActionType>EndList</ActionType>
+        <Page>2</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <ListName>DataList</ListName>
+      </Action>
+
+      <Action>
+        <ActionID>Action-52</ActionID>
+        <ActionType>PagePlaceHolder</ActionType>
+        <Page>3</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <LoadUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/00501/vehicle/CUJ202421</LoadUrl>
+        <BaseUrl>https://www.jeep.com/hostd/api/incentives/offers/targetMedium/iSilo-Inline/zip/00501/vehicle/CUJ202421</BaseUrl>
+        <CaptureScreenShot>False</CaptureScreenShot>
+      </Action>
+
+      <Action>
+        <ActionID>Action-53</ActionID>
+        <ActionType>CaptureDefaultValue</ActionType>
+        <Page>3</Page>
+        <IsCaptureOptional>False</IsCaptureOptional>
+        <FieldExpression>%Not Found%</FieldExpression>
+        <Value>%modelYearCode% %Brand% %display%</Value>
+      </Action>
+
+    </ActionList>
+
+  </AgentDefinition>
+</Agent>
